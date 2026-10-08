@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "PanicAI",
+    "slug": "panicai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "scheme": "panicai",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.panicai",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "PanicAI usa el micrófono para acompañarte por voz durante una crisis, sin que tengas que tocar la pantalla.",
+        "NSSpeechRecognitionUsageDescription": "PanicAI usa reconocimiento de voz para entender lo que dices durante el acompañamiento.",
+        "NSLocationWhenInUseUsageDescription": "PanicAI usa tu ubicación para compartirla con tu contacto de emergencia cuando lo necesites durante una crisis.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "app.panicai",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.health.READ_HEART_RATE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "@react-native-google-signin/google-signin",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "PanicAI necesita acceso a tus fotos para que puedas elegir una foto de perfil.",
+          "cameraPermission": "PanicAI necesita acceso a la cámara para tomar una foto de perfil."
+        }
+      ],
+      "expo-audio",
+      "expo-asset",
+      "react-native-health-connect",
+      "./plugins/withHealthConnectDelegate",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 26
+          }
+        }
+      ],
+      "react-native-ble-plx"
+    ],
+    "extra": {
+      "router": {}
+    }
+  }
+}
